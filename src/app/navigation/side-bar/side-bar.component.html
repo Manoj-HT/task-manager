@@ -1,0 +1,7 @@
+<div class="main_container">
+    <ul >
+        @for (navItem of navService.routes; track $index) {
+            <li (click)="navigate(navItem.path)" >{{navItem.title}}</li>    
+        }
+    </ul>
+</div>

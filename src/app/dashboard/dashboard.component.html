@@ -1,0 +1,36 @@
+<div class="task-list-container">
+  <h2>Task List</h2>
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <label>Filter by Priority: &nbsp;</label>
+    <select (change)="updateFilter($event)">
+      <option value="">All Priorities</option>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+      <option value="critical">Critical</option>
+    </select>
+  </div>
+
+  <!-- Task Cards -->
+  @for (task of filteredTasks(); track task.id) {
+  <div class="task-card">
+    <div class="task-header" (click)="toggleExpand(task.id)">
+      <h3>{{ task.title }}</h3>
+      <span class="priority {{ task.priority }}">{{ task.priority }}</span>
+    </div>
+
+    <!-- Expanded Details -->
+    @if (expandedTask === task.id) {
+    <div class="task-details">
+      <p>{{ task.description }}</p>
+      <p><strong>Due:</strong> {{ task.dueDate || 'No deadline' }}</p>
+      <div class="actions">
+        <button (click)="completeTask(task)">✅ Complete</button>
+        <button (click)="editTask(task.id)"> ✏️ Edit task</button>
+      </div>
+    </div>
+    }
+  </div>
+  }
+</div>

@@ -1,0 +1,47 @@
+.completed-tasks-container {
+    padding: 16px;
+  }
+  
+  .filter-bar {
+    margin-bottom: 16px;
+  }
+  
+  .task-card {
+    background: #f4f4f4;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .task-details {
+    margin-top: var(--10px);
+    padding-top: var(--10px);
+    p{
+      padding-bottom: var(--10px);
+    }
+    border-top: 1px solid #ddd;
+  }
+  
+  .priority {
+    padding: 4px 8px;
+    border-radius: 5px;
+  }
+  
+  .low { background: lightgreen; }
+  .medium { background: orange; }
+  .high { background: red; color: white; }
+  .critical { background: darkred; color: white; }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+  }
+  

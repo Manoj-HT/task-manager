@@ -1,0 +1,21 @@
+select {
+    padding: var(--10px);
+    border-radius: var(--10px);
+    background: transparent;
+    outline: var(--theme);
+}
+
+button{
+    background: transparent;
+    border: 2px solid var(--theme);
+    border-radius: var(--10px);
+    padding: var(--10px);
+    cursor: pointer;
+    transition-duration: var(--time);
+    &:hover{
+        scale: 1.05;
+    }
+    &:active{
+        scale: 0.95;
+    }
+}

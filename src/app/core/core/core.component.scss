@@ -1,0 +1,25 @@
+.page {
+    display: flex;
+
+    nav {
+        width: 15rem;
+    }
+    gap: 10px;
+    height: 100vh;
+    overflow: auto;
+}
+.page_content{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 835px) {
+    .page {
+        flex-direction: column-reverse;
+        nav{
+            width: 100%;
+            height: 3rem;
+        }
+    }
+}

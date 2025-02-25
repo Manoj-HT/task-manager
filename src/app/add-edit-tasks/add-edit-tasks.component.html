@@ -1,0 +1,38 @@
+<div class="form-container">
+    <h2>@if (isEditMode) { Edit Task } @else { Add New Task }</h2>
+  
+    <form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <!-- Task Title -->
+      <label for="title">Title:</label>
+      <input id="title" formControlName="title" type="text" placeholder="Enter task title">
+      @if (taskForm.controls['title'].invalid && taskForm.controls['title'].touched) {
+        <p class="error">Title is required (min 3 characters).</p>
+      }
+  
+      <!-- Task Description -->
+      <label for="description">Description:</label>
+      <textarea id="description" formControlName="description" placeholder="Enter task details"></textarea>
+      @if (taskForm.controls['description'].invalid && taskForm.controls['description'].touched) {
+        <p class="error">Description is required.</p>
+      }
+  
+      <!-- Task Priority -->
+      <label for="priority">Priority:</label>
+      <select id="priority" formControlName="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+        <option value="critical">Critical</option>
+      </select>
+  
+      <!-- Due Date -->
+      <label for="dueDate">Due Date:</label>
+      <input id="dueDate" formControlName="dueDate" type="date">
+  
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="taskForm.invalid">
+        @if (isEditMode) { Update Task } @else { Add Task }
+      </button>
+    </form>
+  </div>
+  

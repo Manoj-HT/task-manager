@@ -1,0 +1,18 @@
+Task Manager
+Objective
+Develop a task manager application that allows users to manage their tasks offline.
+
+Requirements
+Set up a new Angular project.
+
+Create a service to manage tasks (create, read, update, delete).
+
+Implement a service worker to cache API responses and static assets.
+
+Display a list of tasks.
+
+Add functionality to manage tasks offline.
+
+offline : service worker - use navigator
+indexedDB for backend
+
