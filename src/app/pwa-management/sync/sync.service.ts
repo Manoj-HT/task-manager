@@ -27,6 +27,10 @@ export class SyncService {
           return remote && JSON.stringify(remote) !== JSON.stringify(local);
         });
 
+        // scenario 1: overwrite local db
+        // scenario 2: overwrite remote db
+        // scenario 3: ask user to overwrite the db of preference
+        
         this.addIntoIndexedDB(tasksToPull)
         this.pushToRemote(tasksToUpdate)
 

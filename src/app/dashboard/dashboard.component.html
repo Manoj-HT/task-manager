@@ -3,7 +3,7 @@
   <!-- Filter Bar -->
   <div class="filter-bar">
     <label>Filter by Priority: &nbsp;</label>
-    <select (change)="updateFilter($event)">
+    <select title="priority" (change)="updateFilter($event)">
       <option value="">All Priorities</option>
       <option value="low">Low</option>
       <option value="medium">Medium</option>
@@ -24,10 +24,15 @@
     @if (expandedTask === task.id) {
     <div class="task-details">
       <p>{{ task.description }}</p>
-      <p><strong>Due:</strong> {{ task.dueDate || 'No deadline' }}</p>
+      @if(task.dueDate){
+      <p><strong>Due:</strong> {{ task.dueDate | date:'dd-MM-yyyy HH:mm a' }}</p>
+      }
+      @else {
+      <p><strong>No deadline</strong> </p>
+      }
       <div class="actions">
-        <button (click)="completeTask(task)">✅ Complete</button>
-        <button (click)="editTask(task.id)"> ✏️ Edit task</button>
+        <button type="button" (click)="completeTask(task)">✅ Complete</button>
+        <button type="button" (click)="editTask(task.id)"> ✏️ Edit task</button>
       </div>
     </div>
     }

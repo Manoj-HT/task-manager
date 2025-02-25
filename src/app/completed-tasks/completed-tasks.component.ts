@@ -15,11 +15,6 @@ export class CompletedTasksComponent {
   expandedTask: number | null = null;
   filterPriority = '';
 
-  ngOnInit() {
-    this.loadCompletedTasks();
-  }
-
-
     loadTaskEffect = effect(() => {
       // Refresh list
       if (this.networkDetection.onlineStatus()) {

@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CoreComponent } from './core/core/core.component';
 import { NetowrkDetectionService } from './pwa-management/network-detection/netowrk-detection.service';
+import { RemindersService } from './pwa-management/reminders/reminders.service';
 
 @Component({
   selector: 'app-root',
@@ -14,4 +15,9 @@ export class AppComponent {
 
   private networkDetection = inject(NetowrkDetectionService)
   isOnline = this.networkDetection.onlineStatus
+  private reminder = inject(RemindersService)
+
+  ngOnInit() {
+    this.reminder.requestPermission()
+  }
 }

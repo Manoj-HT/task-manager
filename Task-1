@@ -16,3 +16,5 @@ Add functionality to manage tasks offline.
 offline : service worker - use navigator
 indexedDB for backend
 
+Task 2: 
+add reminder and play tone for that

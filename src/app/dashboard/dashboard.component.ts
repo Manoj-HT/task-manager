@@ -2,11 +2,11 @@ import { Component, effect, inject } from '@angular/core';
 import { TaskService } from '../api-management/interceptors/task.service';
 import { NetowrkDetectionService } from '../pwa-management/network-detection/netowrk-detection.service';
 import { Router } from '@angular/router';
-
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'dashboard',
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
@@ -17,9 +17,6 @@ export class DashboardComponent {
   expandedTask: number | null = null;
   filterPriority = '';
   networkDetection = inject(NetowrkDetectionService)
-
-  ngOnInit() {
-  }
 
   loadTaskEffect = effect(() => {
     // Refresh list
