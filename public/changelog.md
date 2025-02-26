@@ -1,3 +1,8 @@
+## 0.0.5
+
+1. added 100 images for defer viewport
+2. lazyloaded components
+
 ## 0.0.4
 
 1. Set up to always sync and overwrite remote DB when online

@@ -1,0 +1,12 @@
+.container{
+    width: 250px;
+    aspect-ratio: 1/1;
+    // border: var(--dev-border);
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    padding: var(--10px);
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}

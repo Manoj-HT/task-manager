@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Images</h2>
+  <div class="image-grid">
+    @for (item of arr; track $index) {
+      @defer (on viewport) {
+        <image src={{$index}} />
+      }@placeholder {
+      <image-placeholder />
+      }
+    }
+  </div>
+</div>

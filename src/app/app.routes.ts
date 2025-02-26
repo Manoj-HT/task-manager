@@ -1,24 +1,25 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { CompletedTasksComponent } from './completed-tasks/completed-tasks.component';
-import { AddEditTasksComponent } from './add-edit-tasks/add-edit-tasks.component';
 
 export const routes: Routes = [
     {
         path: 'task-list',
-        loadComponent: () => DashboardComponent
+        loadComponent: () => import('./dashboard/dashboard.component').then(c => c.DashboardComponent)
     },
     {
         path: 'completed',
-        loadComponent: () => CompletedTasksComponent
+        loadComponent: () => import('./completed-tasks/completed-tasks.component').then(c => c.CompletedTasksComponent)
     },
     {
         path: 'add-tasks',
-        loadComponent: () => AddEditTasksComponent,
+        loadComponent: () => import('./add-edit-tasks/add-edit-tasks.component').then(c => c.AddEditTasksComponent),
     },
     {
         path: 'edit-task/:taskId',
-        loadComponent: () => AddEditTasksComponent
+        loadComponent: () => import('./add-edit-tasks/add-edit-tasks.component').then(c => c.AddEditTasksComponent)
+    },
+    {
+        path: 'images',
+        loadComponent: () => import('./image-management/image-page/image-page.component').then(c => c.ImagePageComponent)
     },
     {
         path: '',

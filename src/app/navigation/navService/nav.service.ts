@@ -20,6 +20,10 @@ export class NavService {
     {
       title: "Add tasks",
       path: 'add-tasks'
+    },
+    {
+      title: "Images",
+      path: 'images'
     }
   ]
 
