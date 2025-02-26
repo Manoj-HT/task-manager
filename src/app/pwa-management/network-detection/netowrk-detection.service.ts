@@ -15,21 +15,24 @@ export class NetowrkDetectionService {
     window.addEventListener('offline', () => this.onlineStatus.update(() => false));
   }
 
+  /** Side effect for online staus */
   colors = effect(() => {
-    if(this.onlineStatus()){
+    if (this.onlineStatus()) {
       this.onlineFn()
-    }else{
+    } else {
       this.offLineFn()
     }
   })
 
-  onlineFn(){
+  /** fn to execute when app is online */
+  onlineFn() {
     this.root.style.setProperty('--theme-bg', globalStyles.colors.themeBg);
     this.root.style.setProperty('--theme', globalStyles.colors.theme);
     this.sync.syncTasks()
   }
 
-  offLineFn(){
+  /** fn to execute when app is offline */
+  offLineFn() {
     this.root.style.setProperty('--theme-bg', globalStyles.colors.offlineBg);
     this.root.style.setProperty('--theme', globalStyles.colors.offlineFg);
   }

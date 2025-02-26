@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TaskService } from '../api-management/interceptors/task.service';
 import { NetowrkDetectionService } from '../pwa-management/network-detection/netowrk-detection.service';
+import { RemindersService } from '../pwa-management/reminders/reminders.service';
 
 @Component({
   selector: 'add-edit-tasks',
@@ -17,7 +18,7 @@ export class AddEditTasksComponent {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private taskService = inject(TaskService);
-
+  private reminder = inject(RemindersService)
   taskForm!: FormGroup;
   isEditMode = false;
 
@@ -41,6 +42,7 @@ export class AddEditTasksComponent {
     }
   }
 
+  /** Side effect to detect online status */
   netowrkStatusEffect = effect(() => {
     if (this.onlineStatus.onlineStatus()) {
       this.taskId ? this.loadTaskForEditing() : null
@@ -70,11 +72,13 @@ export class AddEditTasksComponent {
     if (this.isEditMode) {
       // Update existing task
       this.taskService.updateTask({ ...newTask, id: this.editingTask.id }).subscribe(() => {
+        this.reminder.setNextReminder(newTask)
         this.router.navigate(['/task-list']);
       });
     } else {
       // Add new task
       this.taskService.addTask({ ...newTask, id: Date.now(), }).subscribe(() => {
+        this.reminder.setNextReminder(newTask)
         this.router.navigate(['/task-list']);
       });
     }

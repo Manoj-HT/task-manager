@@ -1,3 +1,4 @@
+/** Relational Object */
 type Task = {
     id: number;
     title: string;
