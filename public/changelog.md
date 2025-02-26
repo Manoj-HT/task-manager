@@ -1,3 +1,7 @@
+## 0.0.6
+
+1. grid auto rows added to limit defer viewport scaling
+
 ## 0.0.5
 
 1. added 100 images for defer viewport
